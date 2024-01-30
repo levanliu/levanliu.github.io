@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="twitter:image:src" content="https://leimao.github.io/images/favicon/android-chrome-512x512.png"><meta name="referrer" content="no-referrer-when-downgrade"><title>Matrix Similarity - Lei Mao&#039;s Log Book</title><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#3273dc"><meta name="application-name" content="Lei Mao&#039;s Log Book"><meta name="msapplication-TileImage" content="/images/favicon/android-chrome-192x192.png"><meta name="msapplication-TileColor" content="#3273dc"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Lei Mao&#039;s Log Book"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" sizes="192x192" href="/images/favicon/android-chrome-192x192.png"><link rel="apple-touch-icon" sizes="512x512" href="/images/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png"><link rel="apple-touch-icon" sizes="16x16" href="/images/favicon/favicon-16x16.png"><link rel="apple-touch-icon" sizes="32x32" href="/images/favicon/favicon-32x32.png"><meta name="description" content="Understand Why Matrices are Similar"><meta property="og:type" content="blog"><meta property="og:title" content="Matrix Similarity"><meta property="og:url" content="https://leimao.github.io/blog/Matrix-Similarity/"><meta property="og:site_name" content="Lei Mao&#039;s Log Book"><meta property="og:description" content="Understand Why Matrices are Similar"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://leimao.github.io/images/favicon/android-chrome-512x512.png"><meta property="article:published_time" content="2023-08-20T07:00:00.000Z"><meta property="article:modified_time" content="2023-10-10T07:00:00.000Z"><meta property="article:author" content="Lei Mao"><meta property="article:tag" content="Mathematics"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Geometry"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://leimao.github.io/images/favicon/android-chrome-512x512.png"><meta property="twitter:creator" content="@matchaleimao"><meta property="twitter:site" content="Lei Mao&#039;s Log Book"><meta property="fb:admins" content="dukeleimao"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://leimao.github.io/blog/Matrix-Similarity/"},"headline":"Matrix Similarity","image":["https://leimao.github.io/images/favicon/android-chrome-512x512.png"],"datePublished":"2023-08-20T07:00:00.000Z","dateModified":"2023-10-10T07:00:00.000Z","author":{"@type":"Person","name":"Lei Mao"},"publisher":{"@type":"Organization","name":"Lei Mao's Log Book","logo":{"@type":"ImageObject","url":"https://leimao.github.io/images/favicon/android-chrome-512x512.png"}},"description":"Understand Why Matrices are Similar"}</script><link rel="canonical" href="https://leimao.github.io/blog/Matrix-Similarity/"><link rel="alternate" href="/atom.xml" title="Lei Mao&#039;s Log Book" type="application/atom+xml"><link rel="icon" href="/images/favicon/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons/css/academicons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=PT+Sans+Narrow:wght@400;700&amp;family=PT+Serif"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-EJY6FXZBCB" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-EJY6FXZBCB');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script src="//m.servedby-buysellads.com/monetization.custom.js"></script><meta name="generator" content="Hexo 5.4.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/favicon/android-chrome-512x512.png" alt="Lei Mao&#039;s Log Book" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Lei Mao&#039;s Log Book</a><a class="navbar-item" href="/curriculum">Curriculum</a><a class="navbar-item" href="/blog">Blog</a><a class="navbar-item" href="/article">Articles</a><a class="navbar-item" href="/project">Projects</a><a class="navbar-item" href="/publication">Publications</a><a class="navbar-item" href="/reading">Readings</a><a class="navbar-item" href="/life">Life</a><a class="navbar-item" href="/essay">Essay</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/faq">FAQs</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Switch Color Scheme" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/leimao"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Gitter" href="https://gitter.im/leimao/community"><i class="fab fa-gitter"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-content"><center><div class="bsa-standard" id="carbon-ad-01"></div><script>            (function() {             if (typeof _bsa !== 'undefined' && _bsa) {                 _bsa.init('custom', 'CWYD65QY', 'placement:leimaogithubio-standard', {                     target: '#carbon-ad-01',                     template: `             <a href='##link##' class='native-banner' style='background: ##backgroundColor##' rel='sponsored noopener' target='_blank' title='##company## — ##tagline##'>                 <img class='native-img' width='125' src='##logo##' />                 <div class='native-main'>                     <div class='native-details' style='                             color: ##textColor##;                             border-left: solid 1px ##textColor##;                         '>                         <span class='native-company'>Sponsored by ##company##</span>                         <span class='native-desc'>##description##</span>                     </div>                     <span class='native-cta' style='                             color: ##ctaTextColor##;                             background-color: ##ctaBackgroundColor##;                         '>##callToAction##</span>                 </div>             </a>             `,                 });                 }             })();         </script></center></div></div><div class="card"><article class="card-content article" role="article"><h1 class="title is-size-3" style="font-family: 'PT Sans Narrow', sans-serif">Matrix Similarity</h1><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left" style="margin-bottom: 0.50rem"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="2023-08-20T07:00:00.000Z" title="2023-08-20T07:00:00.000Z">08-20-2023</time></span><span class="level-item is-hidden-mobile"><i class="far fa-calendar-check"> </i><time dateTime="2023-10-10T07:00:00.000Z" title="2023-10-10T07:00:00.000Z">10-10-2023</time></span><span class="level-item"><i class="far fa-folder-open has-text-grey"></i> <a class="link-muted" href="/blog/">blog</a></span><span class="level-item"><i class="far fa-clock"></i> 13 minutes read (About 1881 words)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>&nbsp;visits</span></div></div><div class="content" style="margin-top: 1.0rem"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Similar matrices represent the same linear map under two (possibly) different bases. It is the fundamental for matrix diagonalization.</p>
+<p>In this blog post, I would like to quickly discuss how to understand similar matrices.</p>
+<h2 id="Definition-of-Similar-Matrices"><a href="#Definition-of-Similar-Matrices" class="headerlink" title="Definition of Similar Matrices"></a>Definition of Similar Matrices</h2><p>Two $n \times n$ matrices $A$ and $B$ are <em>similar</em> if there exists an invertible matrix $C$ such that $A = CBC^{-1}$.</p>
+<h2 id="Vector-Coordinate-Transformation-Using-Similar-Matrices"><a href="#Vector-Coordinate-Transformation-Using-Similar-Matrices" class="headerlink" title="Vector Coordinate Transformation Using Similar Matrices"></a>Vector Coordinate Transformation Using Similar Matrices</h2><p>The matrix $C$ is invertible if and only if the columns of $C$, $\{ v_1, v_2, \cdots, v_n \}$, are linearly independent, i.e., constitutes a basis or span for $\mathbb{R}^{n}$. Let $\mathcal{B} = \{ v_1, v_2, \cdots, v_n \}$ be a basis for $\mathbb{R}^{n}$, which is different from the standard basis $\{ e_1, e_2, \cdots, e_n \}$. Let $x$ be a vector in $\mathbb{R}^{n}$ and its coordinates are represented using standard basis for simplicity.</p>
+<p>By the definition of similar matrices, we have the vector coordinate transformation $Ax = CBC^{-1}x = C\left(B\left( C^{-1} x\right)\right)$.</p>
+<p>Recall, because $\mathcal{B} = \{ v_1, v_2, \cdots, v_n \}$ is a basis for $\mathbb{R}^{n}$, $x$ can be written as a linear combination of the $\mathcal{B}$ basis,</p>
+<p>$$<br>\begin{align}<br>x &amp;= c_1 v_1 + c_2 v_2 + \cdots + c_n v_n \\<br>&amp;= C [x]_{\mathcal{B}} \\<br>\end{align}<br>$$</p>
+<p>where</p>
+<p>$$<br>C = [v_1, v_2, \cdots, v_n]<br>$$</p>
+<p>and</p>
+<p>$$<br>[x]_{\mathcal{B}} =<br>\begin{bmatrix}<br>c_1 \\<br>c_2 \\<br>\vdots \\<br>c_n \\<br>\end{bmatrix}<br>$$</p>
+<p>are the new coordinates for $x$ using the $\mathcal{B}$ basis.</p>
+<p>Because $C$ is invertible, we have</p>
+<p>$$<br>[x]_{\mathcal{B}} = C^{-1} x<br>$$</p>
+<p>Thus, to transform the vector coordinates from the standard basis coordinate system to the new $\mathcal{B}$ basis coordinate system, we do</p>
+<p>$$<br>[x]_{\mathcal{B}} = C^{-1} x<br>$$</p>
+<p>To transform the vector coordinates from the new $\mathcal{B}$ basis coordinate system to the standard basis coordinate system, because the matrix $C$ is invertible,</p>
+<p>$$<br>x = C [x]_{\mathcal{B}}<br>$$</p>
+<p>The vector coordinate transformation using similar matrices $Ax = C\left(B\left( C^{-1} x\right)\right)$ implies that the vector coordinate transformation in the standard basis coordinate system is equivalent as transforming the vector coordinates from the standard basis coordinate system to the new $\mathcal{B}$ basis coordinate system, performing transformation $B$ in the new $\mathcal{B}$ basis coordinate system, and transforming the vector coordinates from the new $\mathcal{B}$ basis coordinate system back to the standard basis coordinate system.</p>
+<p>The transformation between the transformation matrix $A$ and the transformation $B$ is similar in a way that the coordinates of the vector, $[x]_{\mathcal{B}}$, in the $\mathcal{B}$ basis coordinate system, after the transformation $B$ and the transformation back to the standard basis coordinate system, is exactly the same as the coordinates of the same vector $x$ in the standard basis coordinate system after the transformation $A$. That is to say,</p>
+<p>$$<br>Ax = C\left(B [x]_{\mathcal{B}} \right)<br>$$</p>
+<p>Alternatively, we could also say the transformation between the transformation matrix $A$ and the transformation $B$ is similar in a way that the coordinates of the vector, $[x]_{\mathcal{B}}$, in the $\mathcal{B}$ basis coordinate system, after the transformation $B$, is exactly the same as the coordinates of the same vector $x$ in the standard basis coordinate system after the transformation $A$ and the transformation to the $\mathcal{B}$ basis coordinate system. That is to say,</p>
+<p>$$<br>C^{-1} \left(Ax\right) = B [x]_{\mathcal{B}}<br>$$</p>
+<p>In fact, similar matrices $A$ and $B$ represent the same linear map under two (possibly) different bases. To see this, given the $n$ linearly independent column vectors from the matrix $C$ represented using standard basis coordinates, $\{ v_1, v_2, \cdots, v_n \}$, their $\mathcal{B}$ basis coordinates are $\{ C^{-1}v_1, C^{-1}v_2, \cdots, C^{-1}v_n \} = \{ e_1, e_2, \cdots, e_n \}$.</p>
+<!--
+Because $C$ is invertible, we also have $\\{ v\_1, v\_2, \cdots, v\_n \\} = \\{ Ce\_1, Ce\_2, \cdots, Ce\_n \\}$.
+ -->
+
+<p>Thus the vector coordinates transformation using the standard basis is just the “same” as the vector coordinates transformation using the $\mathcal{B}$ basis followed by converting the basis back to the standard basis from the $\mathcal{B}$ basis. For example, because</p>
+<p>$$<br>\begin{align}<br>A v_i<br>&amp;= CBC^{-1}v_i \\<br>&amp;= C\left(B\left( C^{-1} v_i\right)\right) \\<br>&amp;= C\left(B e_i\right) \\<br>\end{align}<br>$$</p>
+<p>Finally, in practice, $x$ does not have to be represented using standard basis. That’s to say, it’s not necessary that one of the coordinate systems has to be a standard basis coordinate system.</p>
+<h2 id="Eigenvalues-of-Similar-Matrices"><a href="#Eigenvalues-of-Similar-Matrices" class="headerlink" title="Eigenvalues of Similar Matrices"></a>Eigenvalues of Similar Matrices</h2><p>Similar matrices have some interesting properties related to eigenvalues and eigenvectors.</p>
+<h3 id="Similar-Matrices-Have-the-Same-Eigenvalues"><a href="#Similar-Matrices-Have-the-Same-Eigenvalues" class="headerlink" title="Similar Matrices Have the Same Eigenvalues"></a>Similar Matrices Have the Same Eigenvalues</h3><p>Similar matrices have the same eigenvalues.</p>
+<p><em>Proof</em></p>
+<p>Suppose $n \times n$ matrices $A$ and $B$ are similar and $A = CBC^{-1}$, the characteristic polynomial for computing the eigenvalues of $A$ becomes</p>
+<p>$$<br>\begin{align}<br>\lvert A - \lambda I_n \rvert<br>&amp;= \lvert CBC^{-1} - \lambda CC^{-1} \rvert \\<br>&amp;= \lvert CBC^{-1} - \lambda C I_nC^{-1} \rvert \\<br>&amp;= \lvert CBC^{-1} - C \left( \lambda I_n \right) C^{-1} \rvert \\<br>&amp;= \lvert C \left( B - \lambda I_n \right) C^{-1} \rvert \\<br>&amp;= \lvert C \rvert \lvert \left( B - \lambda I_n \right) \rvert \lvert  C^{-1} \rvert \\<br>&amp;= \lvert C \rvert \lvert B - \lambda I_n \rvert \frac{1}{\lvert C \rvert} \\<br>&amp;= \lvert  B - \lambda I_n  \rvert<br>\end{align}<br>$$</p>
+<p>Because the characteristic polynomials for computing the eigenvalues of $A$ and $B$ are exactly the same, similar matrices $A$ and $B$ have the same eigenvalues.</p>
+<p>This concludes the proof. $\square$</p>
+<h3 id="Eigenvectors-of-Similar-Matrices"><a href="#Eigenvectors-of-Similar-Matrices" class="headerlink" title="Eigenvectors of Similar Matrices"></a>Eigenvectors of Similar Matrices</h3><p>Suppose $n \times n$ matrices $A$ and $B$ are similar, $A = CBC^{-1}$. Because similar matrices have the same eigenvalues, we further suppose $\lambda$ is the eigenvalue for $A$ and $B$, and $Av = \lambda v$ where $v$ is an eigenvector for $A$ corresponding to the eigenvalue $\lambda$.</p>
+<p>Because of the following relationship,</p>
+<p>$$<br>\begin{align}<br>BC^{-1} v<br>&amp;= \left( C^{-1}C \right) BC^{-1} v \\<br>&amp;= C^{-1} \left( C BC^{-1} \right) v \\<br>&amp;= C^{-1} A v \\<br>&amp;= C^{-1} \lambda v \\<br>&amp;= \lambda C^{-1} v \\<br>\end{align}<br>$$</p>
+<p>Therefore, an eigenvector for $B$ corresponding to the eigenvalue $\lambda$ is $C^{-1} v$.</p>
+<p>Suppose $Bv = \lambda v$ where $v$ is an eigenvector for $B$ corresponding to the eigenvalue $\lambda$, similarly, we could also derive that an eigenvector for $A$ corresponding to the eigenvalue $\lambda$ is $Cv$.</p>
+<!--
+
+Because of the following relationship,
+
+$$
+\begin{align}
+Av
+&= \lambda v \\\\
+&= CBC^{-1} v \\\\
+&= CB \left(C^{-1} v \right) \\\\
+&= C \left( \lambda \left(C^{-1} v \right) \right) \\\\
+\end{align}
+$$
+
+Performing transformation $A$ in the standard basis coordinate system is the
+
+
+ -->
+
+<h3 id="Eigenspace-of-Similar-Matrices"><a href="#Eigenspace-of-Similar-Matrices" class="headerlink" title="Eigenspace of Similar Matrices"></a>Eigenspace of Similar Matrices</h3><p>Suppose $n \times n$ matrices $A$ and $B$ are similar, $A = CBC^{-1}$. $\lambda$ is the eigenvalue for $A$ and $B$, the $\lambda$-eigenspace of $A$ is the solution set of $(A - \lambda I_n) v = 0$, i.e., the nullspace of matrix $A - \lambda I_n$, $\text{Nul}(A - \lambda I_n)$.</p>
+<p>For any eigenvector $v$ in the $\lambda$-eigenspace of $A$, $C^{-1} v$ is an eigenvector in the $\lambda$-eigenspace of $B$. We could say, $C^{-1}$ takes the $\lambda$-eigenspace of $A$ to the $\lambda$-eigenspace of $B$. Similarly, $C$ takes the $\lambda$-eigenspace of $B$ to the $\lambda$-eigenspace of $A$.</p>
+<h3 id="Eigenvectors-with-Distinct-Eigenvalues"><a href="#Eigenvectors-with-Distinct-Eigenvalues" class="headerlink" title="Eigenvectors with Distinct Eigenvalues"></a>Eigenvectors with Distinct Eigenvalues</h3><p>Eigenvectors with distinct eigenvalues are linearly independent.</p>
+<p>Let $v_{1}, v_{2}, \cdots, v_{n}$ be eigenvectors of a matrix $A$, and suppose that the corresponding eigenvalues $\lambda_{1}, \lambda_{2}, \cdots, \lambda_{n}$ are distinct. Then $\{ v_{1}, v_{2}, \cdots, v_{n} \}$ is linearly independent.</p>
+<p><em>Proof</em></p>
+<p>We will prove by contradiction.</p>
+<p>Suppose $\{ v_{1}, v_{2}, \cdots, v_{n} \}$ were linearly dependent.</p>
+<p>This means that we can rearrange the order of $\{ v_{1}, v_{2}, \cdots, v_{n} \}$, for some $j$, $\{ v_{1}, v_{2}, \cdots, v_{j} \}$ is a span that is linearly independent, and $v_{j}$ is a linearly combination of the span.</p>
+<p>$$<br>v_{j} = \sum_{i=1}^{j-1} c_{i} v_{i}<br>$$</p>
+<p>Multiplying both side of the equation by $A$,</p>
+<p>$$<br>\begin{align}<br>A v_{j}<br>&amp;= \lambda_{j} v_{j} \\<br>&amp;= A \sum_{i=1}^{j-1} c_{i} v_{i} \\<br>&amp;= \sum_{i=1}^{j-1} c_{i} A v_{i} \\<br>&amp;= \sum_{i=1}^{j-1} c_{i} \lambda_{i} v_{i} \\<br>\end{align}<br>$$</p>
+<p>Multiplying both side of the equation by $\lambda_{j}$,</p>
+<p>$$<br>\lambda_{j} v_{j} = \sum_{i=1}^{j-1} c_{i} \lambda_{j} v_{i}<br>$$</p>
+<p>Thus,</p>
+<p>$$<br>\sum_{i=1}^{j-1} c_{i} \lambda_{i} v_{i} = \sum_{i=1}^{j-1} c_{i} \lambda_{j} v_{i}<br>$$</p>
+<p>We further have</p>
+<p>$$<br>\sum_{i=1}^{j-1} \left( c_{i} -  c_{j} \right) \lambda_{i} v_{i} = 0<br>$$</p>
+<p>Because $c_i \neq c_j$, the linear equation</p>
+<p>$$<br>\sum_{i=1}^{j-1} d_{i} \lambda_{i} v_{i} = 0<br>$$</p>
+<p>has non-zero solutions.</p>
+<p>But $\{ v_{1}, v_{2}, \cdots, v_{j} \}$ is linearly independent and the above linear equation only has the zero solution. which raises a contradiction.</p>
+<p>Therefore, $\{ v_{1}, v_{2}, \cdots, v_{n} \}$ is linearly independent.</p>
+<p>This concludes the proof. $\square$</p>
+<p>Notice that this theorem does not assume whether the eigenvectors and eigenvalues are real or complex.</p>
+<h2 id="Similar-to-Diagonal-Matrix"><a href="#Similar-to-Diagonal-Matrix" class="headerlink" title="Similar to Diagonal Matrix"></a>Similar to Diagonal Matrix</h2><p>Suppose $n \times n$ matrices $A$ and $D$ are similar, $A = CDC^{-1}$, $C = [v_1, v_2, \cdots, v_n]$, and $D$ is a diagonal matrix.</p>
+<p>It’s easy to see and verify that the standard basis $\{e_1, e_2, \cdots, e_n\}$ is a set of $n$ linearly-independent eigenvectors for any diagonal matrix $D$.</p>
+<p>Suppose the eigenvalues for each of the eigenvectors are $\{\lambda_1, \lambda_2, \cdots, \lambda_n\}$, the $\lambda_1$-eigenspace of $D$ is $k e_1$, the $\lambda_2$-eigenspace of $D$ is $k e_2$, etc.</p>
+<p>Because we have derived that $C$ takes the $\lambda$-eigenspace of $B$ to the $\lambda$-eigenspace of $A$. In this case, $C$ takes the $\lambda$-eigenspace of $B$ to the $\lambda$-eigenspace of $A$, a set of $n$ linearly independent eigenvectors of $A$ are $\{Ce_1, Ce_2, \cdots, Ce_n\} = \{v_1, v_2, \cdots, v_n\}$, and the $\lambda_1$-eigenspace of $A$ is $k v_1$, the $\lambda_2$-eigenspace of $A$ is $k v_2$, etc.</p>
+<p>Because of the following relationship,</p>
+<p>$$<br>\begin{align}<br>Av_i<br>&amp;= \lambda_i v_i \\<br>&amp;= CDC^{-1} v_i \\<br>&amp;= CD\left( C^{-1} v_i \right) \\<br>&amp;= CD e_i \\<br>&amp;= C \left( D e_i \right) \\<br>&amp;= C \left( \lambda_i e_i \right) \\<br>\end{align}<br>$$</p>
+<p>we could see that the diagonal matrix $D$ essentially scales the $e_i$ in the $\mathcal{B}$ basis coordinate system by the corresponding eigenvalue $\lambda_i$. In the standard basis coordinate system, correspondingly, the matrix $A$ scales $v_i$ by the corresponding eigenvalue $\lambda_i$. Both of the operations, even though in different coordinate systems, are the same scaling operation using eigenvalue $\lambda_i$.</p>
+<!--
+
+$$
+\begin{align}
+Ax
+&= CDC^{-1} x \\\\
+&= C\left(D [x]\_{\mathcal{D}} \right) \\\\
+\end{align}
+$$
+ -->
+
+<!--
+
+
+## Transformation Relationships
+
+In the section above, we have seen the vector coordinate transformation in one coordinate system can be seen as the vector coordinate transformation in the other coordinate system. However, we have not clearly seen why the transformations are similar.
+
+The transformation similarity between the transformation matrix $A$ and the transformation $B$ resides in the following equation, which is naturally derived from the definition of similar matrices.
+
+$$
+AC = CB
+$$
+
+
+For the $n$ vectors in $\mathcal{B}$, $\\{e\_1, e\_2, \cdots, e\_n\\}$, which compose to an identity matrix $I\_n$,
+
+
+$$
+I\_n = [e\_1, e\_2, \cdots, e\_n]
+$$
+
+Their coordinates in the standard basis coordinate system, using our derivations previously, are
+
+$$
+\begin{align}
+C
+&= C I\_n \\\\
+&= [C e\_1, C e\_2, \cdots, C e\_n] \\\\
+&= [v\_1, v\_2, \cdots, v\_n]
+\end{align}
+$$
+
+
+
+
+
+## AAAAAAAA
+
+
+
+$Ax = CBC^{-1}x = C\left(B [x]\_{\mathcal{B}} \right)$
+
+
+ -->
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://textbooks.math.gatech.edu/ila/similarity.html">Similarity - Interactive Linear Algebra</a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Matrix Similarity</p><p><a href="https://leimao.github.io/blog/Matrix-Similarity/">https://leimao.github.io/blog/Matrix-Similarity/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Lei Mao</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>08-20-2023</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>10-10-2023</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <div><a class="link-muted" rel="tag" href="/tags/Mathematics/">Mathematics,</a> </div><div><a class="link-muted" rel="tag" href="/tags/Linear-Algebra/">Linear Algebra,</a> </div><div><a class="link-muted" rel="tag" href="/tags/Geometry/">Geometry </a> </div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=61b5930d440224001908310c&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered has-text-weight-normal">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="paypal" onclick="document.getElementById(&#039;paypal-donate-form&#039;).submit()"><span class="icon is-small"><i class="fab fa-paypal"></i></span><span>Paypal</span></a><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form"><input type="hidden" name="cmd" value="_donations"><input type="hidden" name="business" value="SSVSLEH4X85LU"><input type="hidden" name="currency_code" value="USD"></form><a class="button donate" href="https://www.buymeacoffee.com/leimao" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/essay/%E5%B0%8F%E6%B5%A3%E7%86%8A%E5%B9%B2%E8%84%86%E9%9D%A2%E6%B0%B4%E6%B5%92%E8%8B%B1%E9%9B%84%E5%8D%A1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">小浣熊干脆面水浒英雄卡</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/life/Foster-City-Bay-Trail-East/"><span class="level-item">Foster City Bay Trail East 徒步</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comment-card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="comment-block"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://leimao.github.io/blog/Matrix-Similarity/';
+            this.page.identifier = '/blog/Matrix-Similarity/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'leimao-github-io' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/author_images/Lei-Bio-Medium.jpg" alt="Lei Mao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;margin-bottom:0.30rem;">Lei Mao</p><p class="is-block" style="white-space: pre-line; font-style: italic; margin-bottom: 0.50rem; font-size: 0.8em">Artificial Intelligence
+Machine Learning
+Computer Science
+</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Santa Clara, California</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">733</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">453</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/leimao" target="_blank" rel="noopener"><i class="fab fa-github"></i>  Follow</a> <a class="level-item button is-primary is-rounded" href="https://github.com/sponsors/leimao" target="_blank" rel="noopener"><i class="fas fa-heart"></i>  Sponsor</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/leimao"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/matchaleimao"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="LinkedIn" href="https://www.linkedin.com/in/lei-mao/"><i class="fab fa-linkedin"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:dukeleimao@gmail.com"><i class="fas fa-envelope-square"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="G.Scholar" href="https://scholar.google.com/citations?user=R2VUf7YAAAAJ"><i class="ai ai-google-scholar-square"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Introduction"><span class="level-left"><span class="level-item">1</span><span class="level-item">Introduction</span></span></a></li><li><a class="level is-mobile" href="#Definition-of-Similar-Matrices"><span class="level-left"><span class="level-item">2</span><span class="level-item">Definition of Similar Matrices</span></span></a></li><li><a class="level is-mobile" href="#Vector-Coordinate-Transformation-Using-Similar-Matrices"><span class="level-left"><span class="level-item">3</span><span class="level-item">Vector Coordinate Transformation Using Similar Matrices</span></span></a></li><li><a class="level is-mobile" href="#Eigenvalues-of-Similar-Matrices"><span class="level-left"><span class="level-item">4</span><span class="level-item">Eigenvalues of Similar Matrices</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Similar-Matrices-Have-the-Same-Eigenvalues"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">Similar Matrices Have the Same Eigenvalues</span></span></a></li><li><a class="level is-mobile" href="#Eigenvectors-of-Similar-Matrices"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">Eigenvectors of Similar Matrices</span></span></a></li><li><a class="level is-mobile" href="#Eigenspace-of-Similar-Matrices"><span class="level-left"><span class="level-item">4.3</span><span class="level-item">Eigenspace of Similar Matrices</span></span></a></li><li><a class="level is-mobile" href="#Eigenvectors-with-Distinct-Eigenvalues"><span class="level-left"><span class="level-item">4.4</span><span class="level-item">Eigenvectors with Distinct Eigenvalues</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Similar-to-Diagonal-Matrix"><span class="level-left"><span class="level-item">5</span><span class="level-item">Similar to Diagonal Matrix</span></span></a></li><li><a class="level is-mobile" href="#References"><span class="level-left"><span class="level-item">6</span><span class="level-item">References</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget"><div class="g-ads-x"><div class="card-content"><div class="menu"><h3 class="menu-label">Advertisement</h3></div><br><center><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWYDCK3L&amp;placement=leimaogithubio" id="_carbonads_js"></script></center></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/favicon/android-chrome-512x512.png" alt="Lei Mao&#039;s Log Book" height="28"></a><p class="is-size-7"><span>&copy; 2017-2024 Lei Mao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Site UV: <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></span> <span id="busuanzi_container_site_pv">Site PV: <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub" href="https://github.com/leimao"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
